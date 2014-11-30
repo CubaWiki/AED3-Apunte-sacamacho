@@ -1,0 +1,48 @@
+# vim
+*.swp
+
+# Latex OH
+*.aux
+*.toc
+*.log
+*.gz
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Temporary files
+*~
+
+# Informe
+main.pdf
+
+# Misc
+.DS_Store
+Thumbs.db
+Desktop.ini
