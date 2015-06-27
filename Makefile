@@ -3,7 +3,7 @@
 LATEX := pdflatex
 LATEXFLAGS := -interaction=nonstopmode
 
-PDFS := aed3-apunte.pdf
+PDFS := apunte.pdf
 
 all: $(PDFS)
 
