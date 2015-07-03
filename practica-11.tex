@@ -38,3 +38,21 @@ $\exists (w\rightarrow v)\in X_{R}$ si $f(v\rightarrow w)> 0$
 \item Complejidad Ford-Fulkerson $O(mnB)$ B cota superior para capacidades. (devuelve flujo maximo y corte minimo).
 \item Complejidad Edmond y Karp $O(m^{2}n)$ (BFS de camino de Aumento para marcar nodos)
 \end{enumerate}
+
+\subsection{Algoritmos}
+\paragraph{Ford y Fulkerson}
+
+Pseudocódigo:
+\begin{algorithmic}[1]
+    \State Definir un flujo inicial $f$ en $N$ (por ejemplo 0 para todos los ejes).
+    \While{exista $P$ camino de aumento en $R(N,f)$}
+        \ForAll{arco $(v\to w)$ de $P$}
+            \If {$(v\to w) \in X$}
+                \State $f((v\to w)) \gets f((v\to w)) + \Delta(P)$
+            \Else
+                \State $f((w\to v)) \gets f((w\to v)) - \Delta(P)$
+            \EndIf
+        \EndFor
+    \EndWhile
+    \State \Return Devolver $f$.
+\end{algorithmic}
