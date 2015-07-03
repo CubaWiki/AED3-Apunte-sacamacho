@@ -32,3 +32,45 @@
 \item un grafo k-conexo cuando se le pueden sacar cualquier $k$ nodo y seguir siendo conexo.
 \item si $G$ es planar $\Rightarrow \sum_{\substack{f \in F}}|f| = 2m$ (los tamaños de todas las fronteras) Recordar $\sum_{\substack{v \in V}}d(v) = 2m$
 \end{enumerate}
+
+\subsection{Algoritmos}
+\paragraph{Demoucron , Malgrange y Pertuiset}
+Consideraciones previas:
+\begin{itemize}
+    \item Una \textit{parte p de G relativa a R} se define como:
+        \begin{itemize}
+            \item Un eje $(u,v) \in E(G) \setminus E(R)$ con $u,\ v \in V(R)$ ó
+            \item Una componente conexa de $G[V(G) \setminus V(R)]$ junto con todos los ejes de $G$ incidentes a ella (ejes colgantes).
+        \end{itemize}
+    \item Una representación planar de un subgrafo $R$ de $G$ es \textit{G-admisible} si se puede extender dicha representación a una representación planar de $G$.
+    \item Dada una parte $p$ de $R$ relativa a $G$, un nodo $v$ es \textit{nodo de contacto de p} sii $v \in V(R)$ y $v$ es extremo de algún eje de $p$.
+    \item Dada una parte $p$ de $R$ relativa a $G$ y una representación $\tilde R$, decimos que es \textit{dibujable en una región f} de $\tilde R$ si existe una extensión de $\tilde R$ donde $p$ queda en $f$.
+    \item Dada una parte $p$ de $R$ relativa a $G$ y una representación $\tilde R$, decimos que es \textit{potencialmente dibujable en una región f} de $\tilde R$ si todo nodo de contacto de $p$ pertenece a la frontera de $f$.
+    \item \textit{Teorema:} Dada una parte $p$ de $R$ relativa a $G$ y una representación $\tilde R$, $p$ es dibujable en $f$ $\iff$ $p$ es potencialmente dibujable en $f$.
+    \item Llamamos $F(p, \tilde R)$ al conjunto de regiones de $\tilde R$ donde $p$ es dibujable.
+    \item \textit{Teorema:} Si $\tilde R$ es G-admisible, entonces toda parte $p$ de $R$ relativa a $G$ satisface $F(p, \tilde R) \neq \emptyset$.
+\end{itemize}
+
+Pseudocódigo:
+\begin{algorithmic}[1]
+    \State Buscar un ciclo $G_0$ y construir una representacion planar de $G_0$
+    \State $i \gets 0$
+    \While{$E(G) \setminus E(G_i) \neq \emptyset$}
+        \ForAll{parte $p$ de $R$ relativa a $G_i$}
+            \State Calcular $F(p, \tilde G_ i)$
+            \If {$F(p, \tilde G_ i) = \emptyset$}
+                \State \Return False
+            \EndIf
+        \EndFor
+        \If {$\exists\ p : F(p, \tilde G_ i) = \{f\}$}
+            \State Elegir $f$ como el único $F(p, \tilde G_ i)$
+        \Else
+            \State Elegir cualquier $p$ y un $f \in F(p, \tilde G_ i)$ para el $p$ elegido
+        \EndIf
+        \State Buscar una ruta $P_i$ que conecte dos nodos de contacto de $p$
+        \State $G_{i+1} \gets G_i \cup P_i$
+        \State Dibujar $P_i$ en $f$ para obtener $\tilde  G_{i+1}$
+        \State $i \gets i+1$
+    \EndWhile
+    \State \Return True // $\tilde G_i$ es una representacion planar de G
+\end{algorithmic}
