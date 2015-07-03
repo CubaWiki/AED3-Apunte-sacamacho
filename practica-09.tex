@@ -1,36 +1,47 @@
 \section{Practica 9 - Planaridad}
-\subsection{Definiciones, Propiedades y Teoremas}
+\subsection{Definiciones generales}
 \begin{enumerate}
-\item Una representacion planar de un grafo $G$ es un conjunto de puntos en el plano que se corresponden con los vertices de $G$ unidos por curvas que se corresponden con las aristas de $G$, sin que estas se crucen entre si.
-\item Un grafo es planar si admite representacion planar.
-\item Una region de una rep. planar de $G$ es el conjunto de todos los puntos alcanzables desde un punto (que no sea un vertic e ni parte de una arista) sin atravesar vertices ni aristas.
-\item Toda representacion planar de un grafo tiene exactamente una region de area infinita, la region exterior.
+\item Una representación planar de un grafo $G$ es un conjunto de puntos en el plano que se corresponden con los vertices de $G$ unidos por curvas que se corresponden con las aristas de $G$, sin que estas se crucen entre si.
+\item Un grafo es planar si admite representación planar.
+\item Una region de una rep. planar de $G$ es el conjunto de todos los puntos alcanzables desde un punto (que no sea un vertice ni parte de una arista) sin atravesar vertices ni aristas.
+\item Toda representación planar de un grafo tiene exactamente una region de area infinita, la region exterior.
 \item La frontera de una region es el circuito que rodea a la region (puede tener vertices y aristas repetidas)
 \item El grado/tamaño de una region es el nro. de aristas que tiene su frontera.
-\item $K_{5}$ es el grafo no planar con menos $n$; $K_{3,3}$ es el no planar de menos $m$.
+\item \textit{Propiedad:} $K_{5}$ es el grafo no planar con menor cantidad de vertices y $K_{3,3}$ es el grafo no planar con menor cantidad de aristas.
 \item \textit{Propiedad:} Si un grafo contiene un subgrafo no planar, es no planar.
-\item Subdividir una arista $e=(v,w)$ consiste en agregar $u \notin V$ a $G$ y reemplazar $e$ por dos aristas $e'=(v,u) y e''=(u,w)$
-\item Un grafo $G'$ es subdivision de $G$ si puede obtenerse subdividiendo a $G$.
-\item $G y G'$ son homeomorfos si hay isomorfismo entre alguna subdivision de $G$ con alguna de $G'$.
-\item \textit{Teorema:} (Kuratowski) Un grafo es planar $\iff$ no contiene ningun subgrafo homeomorfo a $K_{5} o K_{3,3}$.
-\item \textit{Propiedad:} Si un grafo G tiene un subgrafo homeomorfo a un grafo no planar entonces $G$ es no planar.
-\item $G$ planar $\Rightarrow$ toda comp conexa de $G$ es planar y todo subgrafo es planar.
-\item \textit{Propiedad:} La planaridad es invariante bajo homeomarfismo.
-\item \textit{Propiedad:} $G'$ subdivision de $G$, entonces $G$ es planar $\iff G'$ es planar.
+\item \textit{Propiedad:} $G$ planar $\Rightarrow$ toda componente conexa de $G$ es planar y todo subgrafo es planar.
+\end{enumerate}
+
+\subsection{Subdivisión}
+\begin{enumerate}
+\item Subdividir una arista $e=(v,w)$ consiste en agregar $u \notin V$ a $G$ y reemplazar $e$ por dos aristas $e'=(v,u)$ y $e''=(u,w)$
+\item Un grafo $G'$ es subdivisión de otro grafo $G$ si puede obtenerse a partir de sucesivas operaciones de subdivisión.
+\item $G y G'$ son homeomorfos si hay un isomorfismo entre una subdivisión de $G$ y una de $G'$.
+\item \textit{Propiedad:} Si $G'$ es una subdivisión de $G$, entonces $G$ es planar $\iff$ $G'$ es planar.
+\item \textit{Propiedad:} La planaridad es invariante bajo homeomorfismo.
+\item \textit{Corolario:} Si un grafo $G$ tiene un subgrafo homeomorfo a un grafo no planar entonces $G$ es no planar.
+\item \textit{Teorema:} (Kuratowski) Un grafo es planar $\iff$ no contiene ningún subgrafo homeomorfo a $K_{5} o K_{3,3}$.
+\end{enumerate}
+
+\subsection{Contracción}
+\begin{enumerate}
 \item Contraer una arista $e=(v,w)$ consiste en eliminar $e$ del grafo y considerar sus extremos como un vertice $u \notin V$ quedando como aristas incidentes a $u$ las incidentes a $v$ y $w$.
-\item $G'$ es contraccion de $G$ si se puede obtener haciendo contracciones de $G$.
+\item $G'$ es contracción de $G$ si se puede obtener a partir de aplicar sucesivas operaciones de contracción sobre $G$. En este caso se dice que $G$ es contraible a $G'$.
 \item \textit{Teorema:} (Whitney) $G$ es planar $\iff$ no contiene subgrafo contraible a $K_{5} o K_{3,3}$.
-\item \textit{Teorema:} (Euler) $G$ conexo planar, una representacion planar de $G$ tiene $r=m-n+2$ regiones en el plano.
+\end{enumerate}
+
+\subsection{Otras propiedades}
+\begin{enumerate}
+\item \textit{Teorema:} (Euler) $G$ conexo planar, entonces una representación planar de $G$ tiene $r=m-n+2$ regiones en el plano.
 \item \textit{Corolario:} $G$ simple, conexo, planar $n \geq 3 \Rightarrow m \leq 3n-6$
 \item \textit{Corolario:} $G$ simple, conexo, bipartito, planar $n \geq 3 \Rightarrow m \leq 2n-4$
 \item $G*$ es el grafo dual de $G$ planar, tiene un vertice por cada region de $G$ y una arista uniendo dos vertices correspondientes a dos regiones $r_{1}$ y $r_{2}$ por cada arista en la frontera $r_{1}$ y $r_{2}$ en $G$.
-\item Al subdividir una arista se agregar nodos de grado 2
 \item Cualquier arbol es planar.
 \item \textit{Propiedad:} $G$ conexo, planar, simple $n \geq 3 \Rightarrow$ el tamaño de la frontera de cada region es mayor o igual a $3$.
 \item El grafo dual de un grafo dual de $G$ es $G$ ($G$ conexo).
-\item los grafos 3-conexos tienen una unica representacion planar.
-\item un grafo k-conexo cuando se le pueden sacar cualquier $k$ nodo y seguir siendo conexo.
-\item si $G$ es planar $\Rightarrow \sum_{\substack{f \in F}}|f| = 2m$ (los tamaños de todas las fronteras) Recordar $\sum_{\substack{v \in V}}d(v) = 2m$
+\item Los grafos 3-conexos tienen una unica representación planar.
+\item Un grafo k-conexo cuando se le pueden sacar cualquier $k$ nodo y seguir siendo conexo.
+\item Si $G$ es planar $\Rightarrow \sum_{\substack{f \in F}}|f| = 2m$ (los tamaños de todas las fronteras) Recordar $\sum_{\substack{v \in V}}d(v) = 2m$
 \end{enumerate}
 
 \subsection{Algoritmos}
@@ -39,8 +50,8 @@ Consideraciones previas:
 \begin{itemize}
     \item Una \textit{parte p de G relativa a R} se define como:
         \begin{itemize}
-            \item Un eje $(u,v) \in E(G) \setminus E(R)$ con $u,\ v \in V(R)$ ó
-            \item Una componente conexa de $G[V(G) \setminus V(R)]$ junto con todos los ejes de $G$ incidentes a ella (ejes colgantes).
+            \item Un eje $(u,v) \in E(G \setminus R)$ con $u,\ v \in V(R)$ ó
+            \item Una componente conexa de $G \setminus R$ junto con todos los ejes de $G$ incidentes a ella (ejes colgantes).
         \end{itemize}
     \item Una representación planar de un subgrafo $R$ de $G$ es \textit{G-admisible} si se puede extender dicha representación a una representación planar de $G$.
     \item Dada una parte $p$ de $R$ relativa a $G$, un nodo $v$ es \textit{nodo de contacto de p} sii $v \in V(R)$ y $v$ es extremo de algún eje de $p$.
@@ -51,9 +62,11 @@ Consideraciones previas:
     \item \textit{Teorema:} Si $\tilde R$ es G-admisible, entonces toda parte $p$ de $R$ relativa a $G$ satisface $F(p, \tilde R) \neq \emptyset$.
 \end{itemize}
 
+Complejidad: $\mathcal{O}(n^2)$
+
 Pseudocódigo:
 \begin{algorithmic}[1]
-    \State Buscar un ciclo $G_0$ y construir una representacion planar de $G_0$
+    \State Buscar un ciclo $G_0$ y construir una representación planar de $G_0$
     \State $i \gets 0$
     \While{$E(G) \setminus E(G_i) \neq \emptyset$}
         \ForAll{parte $p$ de $R$ relativa a $G_i$}
@@ -72,5 +85,5 @@ Pseudocódigo:
         \State Dibujar $P_i$ en $f$ para obtener $\tilde  G_{i+1}$
         \State $i \gets i+1$
     \EndWhile
-    \State \Return True // $\tilde G_i$ es una representacion planar de G
+    \State \Return True // $\tilde G_i$ es una representación planar de G
 \end{algorithmic}
