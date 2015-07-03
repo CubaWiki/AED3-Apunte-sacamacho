@@ -1,4 +1,5 @@
 \section{Practica 10 - Coloreo}
+\subsection{Definiciones, Propiedades y Teoremas}
 \begin{enumerate}
 \item Un coloreo valido de los nodos de un grafo $G=(V,E)$ es una asignacion $f:V\rightarrow C$ tal que $f(u) \neq f(v)$ $\forall(u,v)\in E$. Un k-coloreo de $G$ es un coloreo que usa exactamente $k$ colores. Un grafo es k-coloreable si existe un k-coloreo de $G$, $\chi(G)=k$.
 \item el numero cromatico de $G, \chi(G)$ es el menor numero de colores necesarios para colorear los nodos de $G$.
@@ -30,3 +31,16 @@
 \item Indice cromatico $\chi'(G)$ es el numero minimo de colores de un coloreo valido de las aristas.
 \item \textit{Teorema:} (Vizing) $\Delta(G) \leq \chi'(G) \leq \Delta(G)+1$
 \end{enumerate}
+
+\subsection{Algoritmos}
+\paragraph{Algoritmo de coloreo secuencial}
+
+Pseudocódigo:
+\begin{algorithmic}[1]
+    \State Entrada: Un grafo $G$ con un orden en los nodos $v_1, \dots, v_n$
+    \State $f(v_1) \gets 1$
+    \For{$i = 2,3,\dots,n$}
+        \State $f(v_1) \gets min\{h\ /\ h \geq 1 \land f(v_j) \neq h\ \forall(v_j,v_i) \in E(G),\ 1 \leq j \leq i-1 \}$
+    \EndFor
+    \State \Return Coloreo definido por f
+\end{algorithmic}
