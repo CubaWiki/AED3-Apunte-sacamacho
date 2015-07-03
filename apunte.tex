@@ -1,5 +1,5 @@
 \documentclass[a4paper, 11pt]{article}
-\usepackage{verbatim} 
+\usepackage{verbatim}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -51,7 +51,7 @@
          {ž}{{\v{z}}}1
          {ď}{{\v{d}}}1
          {ť}{{\v{t}}}1
-         {ñ}{{\~n}}1                
+         {ñ}{{\~n}}1
          {ů}{{\r{u}}}1
          {Á}{{\'A}}1
          {Í}{{\'I}}1
@@ -66,8 +66,8 @@
          {Ž}{{\v{Z}}}1
          {Ď}{{\v{D}}}1
          {Ť}{{\v{T}}}1
-         {Ň}{{\v{N}}}1                
-         {Ů}{{\r{U}}}1    
+         {Ň}{{\v{N}}}1
+         {Ů}{{\r{U}}}1
 }
 
 
@@ -114,176 +114,18 @@
 
 %\setcounter{section}{-1}
 \newpage
-\section{Practica 8}
-\subsection{Demostraciones}
-Lo importante de las demostraciones es \textbf{(1)} Entender por que tiene que pasar lo que piden demostrar \textbf{(2)} Una vez visto eso tratar de explicarlo traduciendo la idea con lenguaje matematico (nada mas una traduccion que sirve de herramienta, lo importante es explicar claro lo visto en \textbf{(1)})
+\input{practica-08}
 
-\subsection{Euler}
-\begin{enumerate}
-\item Un circuito Euleriano es un circuito que recorre cada arista una unica vez. Un multigrafo es euleriano si tiene un circuito euleriano.
-\item \textit{Teorema:} Son equivalentes para un (multi)grafo conexo:
-   \begin{enumerate}
-   \item G es Euleriano.
-   \item Todo vertice de G tiene grado par.
-   \item Las aristas de G pueden particionarse en circuitos.
-   \end{enumerate}
-\item Un camino euleriano es un camino que recorre cada arista una unica vez.
-\item Un digrafo es euleriano si tiene un circuito orientado que pasa por cada arco exactamente una vez.
-\item \textit{Teorema:} Un (multi)grafo tiene camino euleriano si y solo si todos sus vertices tienen grado par salvo dos (principio y fin).
-\item \textit{Teorema:} Un digrafo conexo es euleriano si y solo si para todo vertice $v$ de $G$ se cumple $d_{in}(v) = d_{out}(v)$
-\end{enumerate}
-
-\subsection{Hamilton}
-\begin{enumerate}
-\item Un camino/circuito hamiltoneano en un grafo $G$ es un camino/circuito que recorre cada vertice una sola vez.
-\item Un grafo es hamiltoneano si tiene circuito hamiltoneano.
-\item \textit{Teorema:} (Condicion necesaria) Sea $G$ un grafo conexo. Si existe $ W \subset V$ tal que $G \setminus W$ tiene $c$ componentes conexas con $c > |W|$ entonces $G$ no es hamiltoneano. ${|W| = n(W) = |V(W)| }$
-\item \textit{Teorema:} (Dirac; Cond. suficiente) Sea $G$ un grafo con $n \geq 3$ y para todo $v \in V$ se cumple $d(v) \geq \frac{n}{2}$
-\item \textit{Propiedad:} G grafo con recurrencia grafica $(d_{1},...,d_{n})$ con $d_{1} \leq ... \leq d_{n}$ y $n \geq 3$. Si no existe $k < \frac{n}{2}$ tal que $d_{k} \leq k$ y $d_{n-k} \leq n-k$, entonces G es hamiltoneno.
-\item \textit{Teorema:} (Ore, Cond. suficiente) $G=(V,E)$, $|V| = n \geq 3$ y para todo par de vertices $v,w \in V$ no adyacentes se cumple $d(v)+d(w)\geq n \Rightarrow G$ es hamiltoneno.
-\item Todo circuito hamiltoneano es simple por que no pasa dos veces por el mismo nodo.
-\item Para demostrar que un grafo es Hamiltoneano o Euleriano se puede hacer un algoritmo que devuelva el circuito y explicar por que es correcto.
-\item "Pigeon hide principle": if $n$ items are put into $m$ pigeonhides with $n>m$, then at least one pigeonhide must contain more than one item.
-\end{enumerate}
-
-\section{Practica 9}
-\subsection{Planaridad}
-\begin{enumerate}
-\item Una representacion planar de un grafo $G$ es un conjunto de puntos en el plano que se corresponden con los vertices de $G$ unidos por curvas que se corresponden con las aristas de $G$, sin que estas se crucen entre si.
-\item Un grafo es planar si admite representacion planar.
-\item Una region de una rep. planar de $G$ es el conjunto de todos los puntos alcanzables desde un punto (que no sea un vertic e ni parte de una arista) sin atravesar vertices ni aristas.
-\item Toda representacion planar de un grafo tiene exactamente una region de area infinita, la region exterior.
-\item La frontera de una region es el circuito que rodea a la region (puede tener vertices y aristas repetidas)
-\item El grado/tamaño de una region es el nro. de aristas que tiene su frontera.
-\item $K_{5}$ es el grafo no planar con menos $n$; $K_{3,3}$ es el no planar de menos $m$.
-\item \textit{Propiedad:} Si un grafo contiene un subgrafo no planar, es no planar.
-\item Subdividir una arista $e=(v,w)$ consiste en agregar $u \notin V$ a $G$ y reemplazar $e$ por dos aristas $e'=(v,u) y e''=(u,w)$
-\item Un grafo $G'$ es subdivision de $G$ si puede obtenerse subdividiendo a $G$.
-\item $G y G'$ son homeomorfos si hay isomorfismo entre alguna subdivision de $G$ con alguna de $G'$.
-\item \textit{Teorema:} (Kuratowski) Un grafo es planar $\iff$ no contiene ningun subgrafo homeomorfo a $K_{5} o K_{3,3}$.
-\item \textit{Propiedad:} Si un grafo G tiene un subgrafo homeomorfo a un grafo no planar entonces $G$ es no planar.
-\item $G$ planar $\Rightarrow$ toda comp conexa de $G$ es planar y todo subgrafo es planar.
-\item \textit{Propiedad:} La planaridad es invariante bajo homeomarfismo.
-\item \textit{Propiedad:} $G'$ subdivision de $G$, entonces $G$ es planar $\iff G'$ es planar.
-\item Contraer una arista $e=(v,w)$ consiste en eliminar $e$ del grafo y considerar sus extremos como un vertice $u \notin V$ quedando como aristas incidentes a $u$ las incidentes a $v$ y $w$.
-\item $G'$ es contraccion de $G$ si se puede obtener haciendo contracciones de $G$.
-\item \textit{Teorema:} (Whitney) $G$ es planar $\iff$ no contiene subgrafo contraible a $K_{5} o K_{3,3}$.
-\item \textit{Teorema:} (Euler) $G$ conexo planar, una representacion planar de $G$ tiene $r=m-n+2$ regiones en el plano.
-\item \textit{Corolario:} $G$ simple, conexo, planar $n \geq 3 \Rightarrow m \leq 3n-6$
-\item \textit{Corolario:} $G$ simple, conexo, bipartito, planar $n \geq 3 \Rightarrow m \leq 2n-4$
-\item $G*$ es el grafo dual de $G$ planar, tiene un vertice por cada region de $G$ y una arista uniendo dos vertices correspondientes a dos regiones $r_{1}$ y $r_{2}$ por cada arista en la frontera $r_{1}$ y $r_{2}$ en $G$.
-\item Al subdividir una arista se agregar nodos de grado 2
-\item Cualquier arbol es planar.
-\item \textit{Propiedad:} $G$ conexo, planar, simple $n \geq 3 \Rightarrow$ el tamaño de la frontera de cada region es mayor o igual a $3$.
-\item El grafo dual de un grafo dual de $G$ es $G$ ($G$ conexo).
-\item los grafos 3-conexos tienen una unica representacion planar.
-\item un grafo k-conexo cuando se le pueden sacar cualquier $k$ nodo y seguir siendo conexo.
-\item si $G$ es planar $\Rightarrow \sum_{\substack{f \in F}}|f| = 2m$ (los tamaños de todas las fronteras) Recordar $\sum_{\substack{v \in V}}d(v) = 2m$ 
-\end{enumerate}
-
-\section{Practica 10}
-\subsection{Coloreo}
-\begin{enumerate}
-\item Un coloreo valido de los nodos de un grafo $G=(V,E)$ es una asignacion $f:V\rightarrow C$ tal que $f(u) \neq f(v)$ $\forall(u,v)\in E$. Un k-coloreo de $G$ es un coloreo que usa exactamente $k$ colores. Un grafo es k-coloreable si existe un k-coloreo de $G$, $\chi(G)=k$.
-\item el numero cromatico de $G, \chi(G)$ es el menor numero de colores necesarios para colorear los nodos de $G$.
-\item \textit{Proposicion:} $H$ subgrafo de $G \Rightarrow \chi(H) \leq \chi(G)$.
-\item Una clique es un subgrafo completo maximal. El numero clique $\omega(G)$ es el numero de nodos de la clique maxima.
-\item Para cualquier grafo $G, \chi(G) \geq \omega(G)$
-\item $\chi(K_{n}) = n$
-\item $G$ bipartito con $m>0$ entonces $\chi(G) = 2$.
-\item $H_{2k}$ es un circuito simple par entonces $\chi(H_{2k}) = 2$.
-\item $H_{2k+1}$ es un circuito simple par entonces $\chi(H_{2k+1}) = 3$.
-\item $T$ es un arbol con $n>1$ entonces $\chi(G) = 2$.
-\item Si $\Delta(G)$ es el grado maximo de $G$ entonces $\chi(G) \leq \Delta(G)+1$
-\item \textit{Teorema:} (Brooks) $G$ conexo, no completo, no circuito simple entonces $\chi(G) \leq \Delta(G)$
-\item Lema: en todo $\Delta(G)$-coloreo de $G-{v}$ los vecinos de $v$ en $G$ usan todos los colores y $d(v) = \Delta(G)$ $\forall v \in V$.
-\item $N(v)={v_{1},...,v_{\Delta(G)}}$ es la vecindad de v.
-\item $\Delta(G)$-coloreo de $G-{v}$ donde $v_{i}$ tiene color $i$. Para $i \neq j$, $H_{ij}$ es el subgrafo inducido por los nodos de $G-{v}$ pintados con $i$ o $j$ en ese $\Delta(G)$-coloreo.
-\item Lema: $v_{i}$ y $v_{j}$ pertenecen a la misma comp. conexa de $H_{ij}$
-\item Lema: $P_{ij}$ comp. conexa de $H_{ij}$ que contiene a $v_{i}$ y $v_{j} \Rightarrow P_{ij}$ camino en $H_{ij}$.
-\item $P_{ij} \cap P_{jk} = {v_{i}}$ para colores $i,j,k$ distintos.
-\item \textit{Teorema:} (Haken) $G$ grafo planar $\Rightarrow \chi(G) \leq 4$. 
-\item \textit{Teorema:} (Heawood) $G$ grafo planar $\Rightarrow \chi(G) \leq 5$. 
-\item Coloreo de grafos es NP-C.
-\item Grafos de Mycielski: $M_{i}$ tiene $p$ nodos, $M_{i+1}$ tiene $2p+1$ nodos (los $v_{i}$ de $M_{i}$, $w_{i}$ nuevos uno por cada $v_{i}$ y un nodo $z$ y aristas: las de $M_{i}$ mas aristas entre $w_{i}$ y $z$ mas aristas de cada $w_{i}$ con su par de $v_{i}$) $\chi(M_{i})=i$, $\omega(M_{i})=2$
-\item Si $G$ no es conexo, $G^{c}$ lo es.
-\item si $G$ es q-regular entonces $G^{c}$ es $(n-1-q)$-regular.
-\item Si $G$ es completo: $P_{G}(k)= k(k-1)(k-2)(...)(k-n+1)$
-\item Si $G$ no es completo: $P_{G}(k)= P_{G+e}(k) + P_{G*e}(k)$
-\item Un coloreo valido de las aristas de $G$ es una asignacion de colores a las aristas en la cual dos aristas que tienen un nodo en comun tienen distinto color asignado.
-\item Indice cromatico $\chi'(G)$ es el numero minimo de colores de un coloreo valido de las aristas.
-\item \textit{Teorema:} (Vizing) $\Delta(G) \leq \chi'(G) \leq \Delta(G)+1$
-\end{enumerate}
 \newpage
+\input{practica-09}
 
-\section{Practica 11}
-\subsection{Matching}
-\begin{enumerate}
-\item Un matching entre los nodos de $G$ es un conjunto $M \subseteq X$ de aristas de $G$ tal que para todo $v \in V$, $v$ incide a lo sumo a una arista $e \in M$
-\item Un Conjunto independiente (CI) de nodos de $G$ es un conjunto de nodos $I \in V$ tal que para toda arista $e \in X$, e incide a lo sumo a un nodo $v \in I$.
-\item Un recubrimiento de los nodos de $G$ (RN) es un conjunto $R_{m}$ de aristas tal que todo $v \in V$ es incidente al menos a una arista $e \in R_{m}$.
-\item Lema: $S \subseteq V$ es un CI $\iff$ $V \setminus S$ es un RA.
-\item Un nodo v se dice saturado por un matching M si hay una arista de M incidente a v.
-\item Dado un Matching M en G, un camino alternado en G con respecto a M es un camino simple donde se alternan las aristas de $X \setminus M$ con aristas M.
-\item Dado un Matching M en G, un camino de aumento en G respecto de M es un camino alternado entre nodos no saturados por M.
-\item Lema: $M_{0}$ y $M_{1}$ dos matchings en G y sea $G'=(V,X')$ con $X'=M_{0} \setminus M_{1} \cup M_{1} \setminus M_{0}$, entonces las componntes conexas de $G'$ son: nodos aislados, circuitos simple con aristas alternadamente en $M_{0}$ y $M_{1}$ o camino simple con aristas alternadamente en $M_{0}$ y $M_{1}$.
-\item \textit{Teorema:} M matching maximo de G $\iff$ no existe camino de aumento en G con respecto a M.
-\item \textit{Teorema:} G sin nodos aislados, M matching maximo y $R_{m}$ recubrimiento minimo de nodos, entonces $|M|+|R_{m}|=n$
-\item \textit{Teorema:} Si I es un CI maximo de G y $R_{n}$ un recubrimiento minimo de aristas de G $\Rightarrow$ $|I|+|R_{n}|=n$.
-\item Sea M un matching maximo en G, entonces los nodos no saturados por M son U con $|U|=n-2|M|$. U es un CI por que M es maximo.
-\end{enumerate}
-\subsection{Flujo}
-\begin{enumerate}
-\item Una red $N=(V,X)$ es un grafo orientado conexo que tiene dos nodos distinguidos una fuente s, con grado de salida positivo, y un sumidero t, con grado de entrada positivo.
-\item Un flujo factible en una red $N=(V,X)$ con funcion de capacidad $c:X(G) \rightarrow \mathbb{R}_{\geq 0}$ es una funcion $f:X(G) \rightarrow \mathbb{R}_{\geq 0}$ tal que $0 \leq f(e) \leq c(e)$ $\forall$ arco $e \in X(G)$.
+\newpage
+\input{practica-10}
 
-$\sum_{\substack{e \in In(v)}}f(e) = \sum_{\substack{e \in Out(v)}}f(e)$ para todo nodo $v \in V \setminus {s,t}$ hay conservacion de flujo.
-\item El valor de flujo es $F=\sum_{\substack{e \in In(t)}}f(e) - \sum_{\substack{e \in Out(t)}}f(e) = \sum_{\substack{e \in Out(s)}}f(e) - \sum_{\substack{e \in In(s)}}f(e)$
-\item Un corte en la red $N=(V,X)$ es un subconjunto $S\subseteq V$ tal que $s \in S$ y $t \notin S$
-\item Dados $S,T \subseteq V$, conjunto $ST={(u\rightarrow v) \in X : u\in S y v\in T}$
-\item f flujo en $N=(V,X)$ y S un corte de N $\Rightarrow$ $F=\sum_{\substack{e \in SS^{c}}}f(e) - \sum_{\substack{e \in S^{c}S}}f(e)$
-\item capacidad de un corte S es $c(S)=\sum_{\substack{e \in SS^{c}}}c(e)$
-\item f flujo con valor F y S corte de N $\Rightarrow$ $F \leq c(S)$
-\item Corolario: F valor de un flujo de f de N y S un corte de N tal que $F=c(S) \Rightarrow$ f define dlujo maximo y S es corte de capacidad minima.
-\item $N=(V,X)$ con funcion de capacidad c y flujo factible f definimos la red residual $R(N,f)=(V,X_{R})$ con $\forall (v\rightarrow w) \in X$,
+\newpage
+\input{practica-11}
 
-$\exists (v\rightarrow w)\in X_{R}$ si $f(v\rightarrow w)< c(v\rightarrow w)$
-$\exists (w\rightarrow v)\in X_{R}$ si $f(v\rightarrow w)> 0$
-\item Un camino de aumento es un camino orientado P de s a t en $R(N,f)$.
-\item \textit{Teorema:} f flujo definido sobre N, entonces f es un flujo maximo $\iff$ no ha camino de aumento en $R(N,f)$.
-\item \textit{Teorema:} En una red N el valor del flujo maximo es igual a la capacidad del corte minimo.
-\item Flujo maximo es P.
-\item Complejidad Ford-Fulkerson $O(mnB)$ B cota superior para capacidades. (devuelve flujo maximo y corte minimo).
-\item Complejidad Edmond y Karp $O(m^{2}n)$ (BFS de camino de Aumento para marcar nodos) 
-\end{enumerate}
-
-\section{Practica 12}
-\subsection{P-NP}
-\begin{enumerate}
-\item Un algoritmo eficiente es un algoritmo de complejidad polinomial. Un problema esta bien resuelto si se conocen algoritmos eficientes para resolverlo.
-\item Se estudian problemas de decision cuya respuesta es "si" o "no". Se puede extender a problemas de minimizacion (existe solucion menor que $k$?) o de maximizacion (solucion mayor que $k$).
-\item Un problema es intratable si no puede ser resuelto por un algoritmo eficiente (por que es indecidible; por que la respuesta es exponencial; por que no se conocen mejores algoritmos.)
-\item Un problema esta en P si existe una MTD de complejidad polinomial que lo resuelve (para toda instancia termina y contesta bien "si" o "no")
-\item Un problema esta en NP si existe MTND polinomial que lo resuelve (toda instancia del problema con respuesta "si" tiene alguna rama que tiene una respuesta "si" y las instancias de "no" ninguna rama llega a "si")
-\item Un problema esta en NP si dada una instancia de "si" y un certificado de la misma, puede ser verificada en tiempo polinomial. Certificado de tamaño polinomial.
-\item Reduccion polinomial: $\Pi_{1}$ y $\Pi_{2}$ dos problemas de decision. Decimos que $f:$ Instancias$(\Pi_{2}) \rightarrow$ Instancias$(\Pi_{1})$ es reduccion polinomial de $\Pi_{2}$ en $\Pi_{1}$ si $f$ es una funcion polinomial y toda instancia $I_{2}$ de $\Pi_{2}$ con respuesta "si" cumple $f(I_{2})$ tiene respuesta "si" en $\Pi_{1}$. Escribimos $\Pi_{2} \leq_{p} \Pi_{1}$.
-\item la composicion de dos reducciones polinomiales es una reduccion polinomial $\Rightarrow$ $\Pi_{1} \leq_{p} \Pi_{2}$ y $\Pi_{2} \leq_{p} \Pi_{3}$ $\Rightarrow$ $\Pi_{1} \leq_{p} \Pi_{3}$
-\item Un problema $\Pi$ esta en NP-Completo si: $\Pi \in$ NP, y para todo $\Pi_{i} \in$ NP, $\Pi_{i} \leq_{p} \Pi$
-\item Un problema esta en NP-Hard si para todo $\Pi_{i} \in$ NP, $\Pi_{i} \leq_{p} \Pi$.
-\item Si existe un problema $\Pi \in$ (NP-C $\cap$ P) entonces $P=NP$
-\item Si existe un problema $\Pi \in$ (NP $\setminus$ P) entonces $P\neq NP$
-\item \textit{Teorema:} (Cook 1971) SAT es NP-Completo.
-\item Para probar que un problema $\Pi_{2}$ es NP-Completo hay que:
-   \begin{enumerate}
-   \item $\Pi_{2} \in$ NP (dar algoritmo y estructuras)
-   \item Elegir problema $\Pi_{1} \in$ NP-Completo y construir una reduccion polinomial $\Pi_{1} \leq_{p} \Pi_{2}$, existe $f$ tal que
-      \begin{enumerate}
-      \item $f$ es polinomial
-      \item Transforma instancias de $\Pi_{1}$ a $\Pi_{2}$ (dar algoritmo y estructuras)
-      \item Para toda instancias $I_{1}$ de $\Pi_{1}$ y resp($I_{1}$)="si" $\Rightarrow$ resp($f(I_{1})$)="si" (explicar grafos)
-      \item Para toda instancias $I_{1}$ de $\Pi_{1}$ y resp($f(I_{1})$)="si" $\Rightarrow$ resp($I_{1}$)="si"
-      \end{enumerate}
-   \end{enumerate}
-\end{enumerate}
+\newpage
+\input{practica-12}
 
 \end{document}

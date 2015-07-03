@@ -1,0 +1,40 @@
+\section{Practica 11}
+\subsection{Matching}
+\begin{enumerate}
+\item Un matching entre los nodos de $G$ es un conjunto $M \subseteq X$ de aristas de $G$ tal que para todo $v \in V$, $v$ incide a lo sumo a una arista $e \in M$
+\item Un Conjunto independiente (CI) de nodos de $G$ es un conjunto de nodos $I \in V$ tal que para toda arista $e \in X$, e incide a lo sumo a un nodo $v \in I$.
+\item Un recubrimiento de los nodos de $G$ (RN) es un conjunto $R_{m}$ de aristas tal que todo $v \in V$ es incidente al menos a una arista $e \in R_{m}$.
+\item Lema: $S \subseteq V$ es un CI $\iff$ $V \setminus S$ es un RA.
+\item Un nodo v se dice saturado por un matching M si hay una arista de M incidente a v.
+\item Dado un Matching M en G, un camino alternado en G con respecto a M es un camino simple donde se alternan las aristas de $X \setminus M$ con aristas M.
+\item Dado un Matching M en G, un camino de aumento en G respecto de M es un camino alternado entre nodos no saturados por M.
+\item Lema: $M_{0}$ y $M_{1}$ dos matchings en G y sea $G'=(V,X')$ con $X'=M_{0} \setminus M_{1} \cup M_{1} \setminus M_{0}$, entonces las componntes conexas de $G'$ son: nodos aislados, circuitos simple con aristas alternadamente en $M_{0}$ y $M_{1}$ o camino simple con aristas alternadamente en $M_{0}$ y $M_{1}$.
+\item \textit{Teorema:} M matching maximo de G $\iff$ no existe camino de aumento en G con respecto a M.
+\item \textit{Teorema:} G sin nodos aislados, M matching maximo y $R_{m}$ recubrimiento minimo de nodos, entonces $|M|+|R_{m}|=n$
+\item \textit{Teorema:} Si I es un CI maximo de G y $R_{n}$ un recubrimiento minimo de aristas de G $\Rightarrow$ $|I|+|R_{n}|=n$.
+\item Sea M un matching maximo en G, entonces los nodos no saturados por M son U con $|U|=n-2|M|$. U es un CI por que M es maximo.
+\end{enumerate}
+\subsection{Flujo}
+\begin{enumerate}
+\item Una red $N=(V,X)$ es un grafo orientado conexo que tiene dos nodos distinguidos una fuente s, con grado de salida positivo, y un sumidero t, con grado de entrada positivo.
+\item Un flujo factible en una red $N=(V,X)$ con funcion de capacidad $c:X(G) \rightarrow \mathbb{R}_{\geq 0}$ es una funcion $f:X(G) \rightarrow \mathbb{R}_{\geq 0}$ tal que $0 \leq f(e) \leq c(e)$ $\forall$ arco $e \in X(G)$.
+
+$\sum_{\substack{e \in In(v)}}f(e) = \sum_{\substack{e \in Out(v)}}f(e)$ para todo nodo $v \in V \setminus {s,t}$ hay conservacion de flujo.
+\item El valor de flujo es $F=\sum_{\substack{e \in In(t)}}f(e) - \sum_{\substack{e \in Out(t)}}f(e) = \sum_{\substack{e \in Out(s)}}f(e) - \sum_{\substack{e \in In(s)}}f(e)$
+\item Un corte en la red $N=(V,X)$ es un subconjunto $S\subseteq V$ tal que $s \in S$ y $t \notin S$
+\item Dados $S,T \subseteq V$, conjunto $ST={(u\rightarrow v) \in X : u\in S y v\in T}$
+\item f flujo en $N=(V,X)$ y S un corte de N $\Rightarrow$ $F=\sum_{\substack{e \in SS^{c}}}f(e) - \sum_{\substack{e \in S^{c}S}}f(e)$
+\item capacidad de un corte S es $c(S)=\sum_{\substack{e \in SS^{c}}}c(e)$
+\item f flujo con valor F y S corte de N $\Rightarrow$ $F \leq c(S)$
+\item Corolario: F valor de un flujo de f de N y S un corte de N tal que $F=c(S) \Rightarrow$ f define dlujo maximo y S es corte de capacidad minima.
+\item $N=(V,X)$ con funcion de capacidad c y flujo factible f definimos la red residual $R(N,f)=(V,X_{R})$ con $\forall (v\rightarrow w) \in X$,
+
+$\exists (v\rightarrow w)\in X_{R}$ si $f(v\rightarrow w)< c(v\rightarrow w)$
+$\exists (w\rightarrow v)\in X_{R}$ si $f(v\rightarrow w)> 0$
+\item Un camino de aumento es un camino orientado P de s a t en $R(N,f)$.
+\item \textit{Teorema:} f flujo definido sobre N, entonces f es un flujo maximo $\iff$ no ha camino de aumento en $R(N,f)$.
+\item \textit{Teorema:} En una red N el valor del flujo maximo es igual a la capacidad del corte minimo.
+\item Flujo maximo es P.
+\item Complejidad Ford-Fulkerson $O(mnB)$ B cota superior para capacidades. (devuelve flujo maximo y corte minimo).
+\item Complejidad Edmond y Karp $O(m^{2}n)$ (BFS de camino de Aumento para marcar nodos)
+\end{enumerate}

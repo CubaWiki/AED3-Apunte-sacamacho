@@ -1,0 +1,34 @@
+\section{Practica 9}
+\subsection{Planaridad}
+\begin{enumerate}
+\item Una representacion planar de un grafo $G$ es un conjunto de puntos en el plano que se corresponden con los vertices de $G$ unidos por curvas que se corresponden con las aristas de $G$, sin que estas se crucen entre si.
+\item Un grafo es planar si admite representacion planar.
+\item Una region de una rep. planar de $G$ es el conjunto de todos los puntos alcanzables desde un punto (que no sea un vertic e ni parte de una arista) sin atravesar vertices ni aristas.
+\item Toda representacion planar de un grafo tiene exactamente una region de area infinita, la region exterior.
+\item La frontera de una region es el circuito que rodea a la region (puede tener vertices y aristas repetidas)
+\item El grado/tamaño de una region es el nro. de aristas que tiene su frontera.
+\item $K_{5}$ es el grafo no planar con menos $n$; $K_{3,3}$ es el no planar de menos $m$.
+\item \textit{Propiedad:} Si un grafo contiene un subgrafo no planar, es no planar.
+\item Subdividir una arista $e=(v,w)$ consiste en agregar $u \notin V$ a $G$ y reemplazar $e$ por dos aristas $e'=(v,u) y e''=(u,w)$
+\item Un grafo $G'$ es subdivision de $G$ si puede obtenerse subdividiendo a $G$.
+\item $G y G'$ son homeomorfos si hay isomorfismo entre alguna subdivision de $G$ con alguna de $G'$.
+\item \textit{Teorema:} (Kuratowski) Un grafo es planar $\iff$ no contiene ningun subgrafo homeomorfo a $K_{5} o K_{3,3}$.
+\item \textit{Propiedad:} Si un grafo G tiene un subgrafo homeomorfo a un grafo no planar entonces $G$ es no planar.
+\item $G$ planar $\Rightarrow$ toda comp conexa de $G$ es planar y todo subgrafo es planar.
+\item \textit{Propiedad:} La planaridad es invariante bajo homeomarfismo.
+\item \textit{Propiedad:} $G'$ subdivision de $G$, entonces $G$ es planar $\iff G'$ es planar.
+\item Contraer una arista $e=(v,w)$ consiste en eliminar $e$ del grafo y considerar sus extremos como un vertice $u \notin V$ quedando como aristas incidentes a $u$ las incidentes a $v$ y $w$.
+\item $G'$ es contraccion de $G$ si se puede obtener haciendo contracciones de $G$.
+\item \textit{Teorema:} (Whitney) $G$ es planar $\iff$ no contiene subgrafo contraible a $K_{5} o K_{3,3}$.
+\item \textit{Teorema:} (Euler) $G$ conexo planar, una representacion planar de $G$ tiene $r=m-n+2$ regiones en el plano.
+\item \textit{Corolario:} $G$ simple, conexo, planar $n \geq 3 \Rightarrow m \leq 3n-6$
+\item \textit{Corolario:} $G$ simple, conexo, bipartito, planar $n \geq 3 \Rightarrow m \leq 2n-4$
+\item $G*$ es el grafo dual de $G$ planar, tiene un vertice por cada region de $G$ y una arista uniendo dos vertices correspondientes a dos regiones $r_{1}$ y $r_{2}$ por cada arista en la frontera $r_{1}$ y $r_{2}$ en $G$.
+\item Al subdividir una arista se agregar nodos de grado 2
+\item Cualquier arbol es planar.
+\item \textit{Propiedad:} $G$ conexo, planar, simple $n \geq 3 \Rightarrow$ el tamaño de la frontera de cada region es mayor o igual a $3$.
+\item El grafo dual de un grafo dual de $G$ es $G$ ($G$ conexo).
+\item los grafos 3-conexos tienen una unica representacion planar.
+\item un grafo k-conexo cuando se le pueden sacar cualquier $k$ nodo y seguir siendo conexo.
+\item si $G$ es planar $\Rightarrow \sum_{\substack{f \in F}}|f| = 2m$ (los tamaños de todas las fronteras) Recordar $\sum_{\substack{v \in V}}d(v) = 2m$
+\end{enumerate}
