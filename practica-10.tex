@@ -1,34 +1,36 @@
 \section{Practica 10 - Coloreo}
 \subsection{Definiciones, Propiedades y Teoremas}
 \begin{enumerate}
-\item Un coloreo valido de los nodos de un grafo $G=(V,E)$ es una asignacion $f:V\rightarrow C$ tal que $f(u) \neq f(v)$ $\forall(u,v)\in E$. Un k-coloreo de $G$ es un coloreo que usa exactamente $k$ colores. Un grafo es k-coloreable si existe un k-coloreo de $G$, $\chi(G)=k$.
-\item el numero cromatico de $G, \chi(G)$ es el menor numero de colores necesarios para colorear los nodos de $G$.
-\item \textit{Proposicion:} $H$ subgrafo de $G \Rightarrow \chi(H) \leq \chi(G)$.
-\item Una clique es un subgrafo completo maximal. El numero clique $\omega(G)$ es el numero de nodos de la clique maxima.
-\item Para cualquier grafo $G, \chi(G) \geq \omega(G)$
-\item $\chi(K_{n}) = n$
-\item $G$ bipartito con $m>0$ entonces $\chi(G) = 2$.
-\item $H_{2k}$ es un circuito simple par entonces $\chi(H_{2k}) = 2$.
-\item $H_{2k+1}$ es un circuito simple par entonces $\chi(H_{2k+1}) = 3$.
-\item $T$ es un arbol con $n>1$ entonces $\chi(G) = 2$.
-\item Si $\Delta(G)$ es el grado maximo de $G$ entonces $\chi(G) \leq \Delta(G)+1$
-\item \textit{Teorema:} (Brooks) $G$ conexo, no completo, no circuito simple entonces $\chi(G) \leq \Delta(G)$
-\item Lema: en todo $\Delta(G)$-coloreo de $G-{v}$ los vecinos de $v$ en $G$ usan todos los colores y $d(v) = \Delta(G)$ $\forall v \in V$.
-\item $N(v)={v_{1},...,v_{\Delta(G)}}$ es la vecindad de v.
-\item $\Delta(G)$-coloreo de $G-{v}$ donde $v_{i}$ tiene color $i$. Para $i \neq j$, $H_{ij}$ es el subgrafo inducido por los nodos de $G-{v}$ pintados con $i$ o $j$ en ese $\Delta(G)$-coloreo.
-\item Lema: $v_{i}$ y $v_{j}$ pertenecen a la misma comp. conexa de $H_{ij}$
-\item Lema: $P_{ij}$ comp. conexa de $H_{ij}$ que contiene a $v_{i}$ y $v_{j} \Rightarrow P_{ij}$ camino en $H_{ij}$.
-\item $P_{ij} \cap P_{jk} = {v_{i}}$ para colores $i,j,k$ distintos.
+\item Un coloreo válido de los nodos de un grafo $G=(V,E)$ es una asignacion $f:V\rightarrow C$ tal que $f(u) \neq f(v)$ $\forall(u,v)\in E$. Un k-coloreo de $G$ es un coloreo que usa exactamente $k$ colores. Un grafo es k-coloreable si existe un k-coloreo de $G$.
+\item El número cromático de $G, \chi(G)$, es el menor número de colores necesarios para colorear los nodos de $G$. Se dice que $G$ es k-cromático si $\chi(G) = k$. Ejemplos:
+    \begin{itemize}
+        \item $\chi(K_{n}) = n$
+        \item $G$ bipartito con $m>0$ entonces $\chi(G) = 2$.
+        \item $H_{2k}$ es un circuito simple par entonces $\chi(H_{2k}) = 2$.
+        \item $H_{2k+1}$ es un circuito simple par entonces $\chi(H_{2k+1}) = 3$.
+        \item $T$ es un arbol con $n>1$ entonces $\chi(G) = 2$.
+    \end{itemize}
+\item \textit{Propiedad:} $H$ subgrafo de $G \Rightarrow \chi(H) \leq \chi(G)$.
+\item Una clique es un subgrafo completo maximal. El número clique $\omega(G)$ es el número de nodos de la clique maxima.
+\item \textit{Propiedad:} Para cualquier grafo $G, \chi(G) \geq \omega(G)$
+\item Grafos de Mycielski: $M_{i}$ tiene $p$ nodos, $M_{i+1}$ tiene $2p+1$ nodos (los $v_{i}$ de $M_{i}$, $w_{i}$ nuevos uno por cada $v_{i}$ y un nodo $z$ y aristas: las de $M_{i}$ mas aristas entre $w_{i}$ y $z$ mas aristas de cada $w_{i}$ con su par de $v_{i}$) $\chi(M_{i})=i$, $\omega(M_{i})=2$
+\item \textit{Propiedad:} Si $\Delta(G)$ es el grado maximo de $G$ entonces $\chi(G) \leq \Delta(G)+1$
+\item \textit{Teorema:} (Brooks) Sea $G$ un grafo conexo que no es un circuito impar ni un grafo completo, entonces $\chi(G) \leq \Delta(G)$
+\item \textit{Lema:} en todo $\Delta(G)$-coloreo de $G-{v}$ los vecinos de $v$ en $G$ usan todos los colores y $d(v) = \Delta(G)$ $\forall v \in V$.
 \item \textit{Teorema:} (Haken) $G$ grafo planar $\Rightarrow \chi(G) \leq 4$.
 \item \textit{Teorema:} (Heawood) $G$ grafo planar $\Rightarrow \chi(G) \leq 5$.
+\item $N(v)={v_{1},...,v_{\Delta(G)}}$ es la vecindad de v.
+\item $\Delta(G)$-coloreo de $G-{v}$ donde $v_{i}$ tiene color $i$. Para $i \neq j$, $H_{ij}$ es el subgrafo inducido por los nodos de $G-{v}$ pintados con $i$ o $j$ en ese $\Delta(G)$-coloreo.
+\item \textit{Lema:} $v_{i}$ y $v_{j}$ pertenecen a la misma comp. conexa de $H_{ij}$
+\item \textit{Lema:} $P_{ij}$ comp. conexa de $H_{ij}$ que contiene a $v_{i}$ y $v_{j} \Rightarrow P_{ij}$ camino en $H_{ij}$.
+\item $P_{ij} \cap P_{jk} = {v_{i}}$ para colores $i,j,k$ distintos.
 \item Coloreo de grafos es NP-C.
-\item Grafos de Mycielski: $M_{i}$ tiene $p$ nodos, $M_{i+1}$ tiene $2p+1$ nodos (los $v_{i}$ de $M_{i}$, $w_{i}$ nuevos uno por cada $v_{i}$ y un nodo $z$ y aristas: las de $M_{i}$ mas aristas entre $w_{i}$ y $z$ mas aristas de cada $w_{i}$ con su par de $v_{i}$) $\chi(M_{i})=i$, $\omega(M_{i})=2$
-\item Si $G$ no es conexo, $G^{c}$ lo es.
-\item si $G$ es q-regular entonces $G^{c}$ es $(n-1-q)$-regular.
+% \item Si $G$ no es conexo, $G^{c}$ lo es.
+% \item si $G$ es q-regular entonces $G^{c}$ es $(n-1-q)$-regular.
 \item Si $G$ es completo: $P_{G}(k)= k(k-1)(k-2)(...)(k-n+1)$
 \item Si $G$ no es completo: $P_{G}(k)= P_{G+e}(k) + P_{G*e}(k)$
-\item Un coloreo valido de las aristas de $G$ es una asignacion de colores a las aristas en la cual dos aristas que tienen un nodo en comun tienen distinto color asignado.
-\item Indice cromatico $\chi'(G)$ es el numero minimo de colores de un coloreo valido de las aristas.
+\item Un coloreo válido de las aristas de $G$ es una asignacion de colores a las aristas en la cual dos aristas que tienen un nodo en comun tienen distinto color asignado.
+\item Indice cromático $\chi'(G)$ es el número minimo de colores de un coloreo válido de las aristas.
 \item \textit{Teorema:} (Vizing) $\Delta(G) \leq \chi'(G) \leq \Delta(G)+1$
 \end{enumerate}
 
