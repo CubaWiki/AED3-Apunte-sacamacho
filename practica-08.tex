@@ -8,23 +8,23 @@ Lo importante de las demostraciones es \textbf{(1)} Entender por que tiene que p
 \item \textit{Teorema:} Son equivalentes para un (multi)grafo conexo:
    \begin{enumerate}
    \item G es Euleriano.
-   \item Todo vertice de G tiene grado par.
+   \item Todo vértice de G tiene grado par.
    \item Las aristas de G pueden particionarse en circuitos.
    \end{enumerate}
 \item Un camino euleriano es un camino que recorre cada arista una unica vez.
 \item Un digrafo es euleriano si tiene un circuito orientado que pasa por cada arco exactamente una vez.
-\item \textit{Teorema:} Un (multi)grafo tiene camino euleriano si y solo si todos sus vertices tienen grado par salvo dos (principio y fin).
-\item \textit{Teorema:} Un digrafo conexo es euleriano si y solo si para todo vertice $v$ de $G$ se cumple $d_{in}(v) = d_{out}(v)$
+\item \textit{Teorema:} Un (multi)grafo tiene camino euleriano si y solo si todos sus vértices tienen grado par salvo dos (principio y fin).
+\item \textit{Teorema:} Un digrafo conexo es euleriano si y solo si para todo vértice $v$ de $G$ se cumple $d_{in}(v) = d_{out}(v)$
 \end{enumerate}
 
 \subsection{Hamilton}
 \begin{enumerate}
-\item Un camino/circuito hamiltoniano en un grafo $G$ es un camino/circuito que recorre cada vertice una sola vez.
+\item Un camino/circuito hamiltoniano en un grafo $G$ es un camino/circuito que recorre cada vértice una sola vez.
 \item Un grafo es hamiltoniano si tiene circuito hamiltoniano.
 \item \textit{Teorema:} (Condicion necesaria) Sea $G$ un grafo conexo. Si existe $ W \subset V$, $W \neq \emptyset$ tal que $G \setminus W$ tiene $c$ componentes conexas con $c > |W|$ entonces $G$ no es hamiltoniano.
 \item \textit{Teorema:} (Dirac; Cond. suficiente) Sea $G$ un grafo con $n \geq 3$ tal que para todo $v \in V$ se cumple $d(v) \geq \frac{n}{2}$, entonces $G$ es hamiltoniano.
 \item \textit{Propiedad:} G grafo con recurrencia grafica $(d_{1},...,d_{n})$ con $d_{1} \leq ... \leq d_{n}$ y $n \geq 3$. Si no existe $k < \frac{n}{2}$ tal que $d_{k} \leq k$ y $d_{n-k} \leq n-k$, entonces G es hamiltoniano.
-\item \textit{Teorema:} (Ore, Cond. suficiente) $G=(V,E)$, $|V| = n \geq 3$ y para todo par de vertices $v,w \in V$ no adyacentes se cumple $d(v)+d(w)\geq n \Rightarrow G$ es hamiltoniano.
+\item \textit{Teorema:} (Ore, Cond. suficiente) $G=(V,E)$, $|V| = n \geq 3$ y para todo par de vértices $v,w \in V$ no adyacentes se cumple $d(v)+d(w)\geq n \Rightarrow G$ es hamiltoniano.
 \item Todo circuito hamiltoniano es simple por que no pasa dos veces por el mismo nodo.
 \item Para demostrar que un grafo es Hamiltoniano o Euleriano se puede hacer un algoritmo que devuelva el circuito y explicar por que es correcto.
 \item "Pigeon hide principle": if $n$ items are put into $m$ pigeonhides with $n>m$, then at least one pigeonhide must contain more than one item.
