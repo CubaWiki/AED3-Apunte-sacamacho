@@ -2,6 +2,7 @@
 *.swp
 
 # Latex OH
+*.pdf
 *.aux
 *.toc
 *.log

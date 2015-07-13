@@ -1,0 +1,28 @@
+\section{Practica 12 - Problemas NP}
+
+\begin{enumerate}
+\item Un algoritmo eficiente es un algoritmo de complejidad polinomial. Un problema esta bien resuelto si se conocen algoritmos eficientes para resolverlo.
+\item Se estudian problemas de decision cuya respuesta es ``si'' o ``no''. Se puede extender a problemas de mínimizacion (existe solucion menor que $k$?) o de máximizacion (solucion mayor que $k$).
+\item Un problema es intratable si no puede ser resuelto por un algoritmo eficiente (por que es indecidible; por que la respuesta es exponencial; por que no se conocen mejores algoritmos.)
+\item Un problema esta en P si existe una Máquina de Turing Deterministica (MTD) de complejidad polinomial que lo resuelve (para toda instancia termina y contesta bien ``si'' o ``no'')
+\item Un problema esta en NP si existe Máquina de Turing No Deterministica (MTND) polinomial que lo resuelve (toda instancia del problema con respuesta ``si'' tiene alguna rama que tiene una respuesta ``si'' y las instancias de ``no'' ninguna rama llega a ``si'')
+\item Un problema esta en NP si dada una instancia de ``si'' y un certificado de la misma, puede ser verificada en tiempo polinomial. Certificado de tamaño polinomial.
+\item Reduccion polinomial: $\Pi_{1}$ y $\Pi_{2}$ dos problemas de decision. Decimos que $f:$ Instancias$(\Pi_{2}) \rightarrow$ Instancias$(\Pi_{1})$ es reduccion polinomial de $\Pi_{2}$ en $\Pi_{1}$ si $f$ es una funcion polinomial y toda instancia $I_{2}$ de $\Pi_{2}$ con respuesta ``si'' cumple $f(I_{2})$ tiene respuesta ``si'' en $\Pi_{1}$. Escribimos $\Pi_{2} \leq_{p} \Pi_{1}$.
+\item Las reducciones polinomilaes respetan transividad: $\Pi_{1} \leq_{p} \Pi_{2}$ y $\Pi_{2} \leq_{p} \Pi_{3}$ $\Rightarrow$ $\Pi_{1} \leq_{p} \Pi_{3}$
+\item Un problema $\Pi$ esta en NP-Completo si: $\Pi \in$ NP, y para todo $\Pi_{i} \in$ NP, $\Pi_{i} \leq_{p} \Pi$
+\item Un problema esta en NP-Hard si para todo $\Pi_{i} \in$ NP, $\Pi_{i} \leq_{p} \Pi$.
+\item Si existe un problema $\Pi \in$ (NP-C $\cap$ P) entonces $P=NP$
+\item Si existe un problema $\Pi \in$ (NP $\setminus$ P) entonces $P\neq NP$
+\item \textit{Teorema:} (Cook 1971) SAT es NP-Completo.
+\item Para probar que un problema $\Pi_{2}$ es NP-Completo hay que:
+   \begin{enumerate}
+   \item $\Pi_{2} \in$ NP (dar algoritmo y estructuras)
+   \item Elegir problema $\Pi_{1} \in$ NP-Completo y construir una reduccion polinomial $\Pi_{1} \leq_{p} \Pi_{2}$, existe $f$ tal que
+      \begin{enumerate}
+      \item $f$ es polinomial
+      \item Transforma instancias de $\Pi_{1}$ a $\Pi_{2}$ (dar algoritmo y estructuras)
+      \item Para toda instancias $I_{1}$ de $\Pi_{1}$ y resp($I_{1}$)=``si'' $\Rightarrow$ resp($f(I_{1})$)=``si'' (explicar grafos)
+      \item Para toda instancias $I_{1}$ de $\Pi_{1}$ y resp($f(I_{1})$)=``si'' $\Rightarrow$ resp($I_{1}$)=``si''
+      \end{enumerate}
+   \end{enumerate}
+\end{enumerate}
